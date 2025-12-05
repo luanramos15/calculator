@@ -12,7 +12,6 @@ A simple calculator project with front-end and back-end components, built for le
 
 ## Repository Structure
 
-/
 ├── frontend/  
 ├── backend/  
 ├── docker-compose.yml  
