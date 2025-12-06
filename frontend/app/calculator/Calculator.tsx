@@ -16,10 +16,8 @@ export function Calculator() {
             setInput('');
         } else if (value === '=' || value === 'Enter') {
             try {
-                console.log(input);
                 let response = await axios.post('http://localhost:8080/', { expression: input }, {headers: {'Content-Type': 'application/json'}})
                 setInput(response.data.result);
-                console.log(response);
             } catch (error) {
                 setInput('Error');
             }
