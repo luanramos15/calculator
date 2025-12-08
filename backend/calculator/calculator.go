@@ -10,11 +10,13 @@ import (
 
 func Calculate(expression string) (string, error) {
 	if strings.Contains(expression, "√") {
-		var re = regexp.MustCompile(`(?m)√\(?([^\)]*)\)?`)
+		// Parentheses first
+		reParen := regexp.MustCompile(`√\(([^()]+)\)`)
+		expression = reParen.ReplaceAllString(expression, "($1)^(1/2)")
 
-		for _, match := range re.FindAllStringSubmatch(expression, -1) {
-			expression = strings.Replace(expression, match[0], "("+match[1]+")^(1/2)", 1) //√ is the same as power of 1/2
-		}
+		// Then simple numbers/vars
+		reSimple := regexp.MustCompile(`√([a-zA-Z0-9]+)`)
+		expression = reSimple.ReplaceAllString(expression, "($1)^(1/2)")
 	}
 
 	program, err := expr.Compile(expression)
