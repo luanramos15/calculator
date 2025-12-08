@@ -23,7 +23,7 @@ services:
       - "8080:8080"
     volumes:
       - ./backend:/app
-      - ./backend/app/tmp:/app/tmp
+      - ./backend/tmp:/app/tmp
     networks:
       - calculator-network
 networks:
