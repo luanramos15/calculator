@@ -135,3 +135,15 @@ func TestCalculateWithMultipleSquareRoots(t *testing.T) {
 		t.Errorf("Expected %s, got %s", expected, result)
 	}
 }
+
+func TestCalculateSquareRootWithParentheses(t *testing.T) {
+	expression := "√(25+25)"
+	result, err := Calculate(expression)
+	if err != nil {
+		t.Errorf("Expected no error, got %v", err)
+	}
+	expected := "7.07106781"
+	if result != expected {
+		t.Errorf("Expected %s, got %s", expected, result)
+	}
+}
