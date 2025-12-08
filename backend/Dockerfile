@@ -1,5 +1,7 @@
 FROM golang:1.25.5-alpine
 
+RUN mkdir /app
+
 WORKDIR /app
 
 RUN go install github.com/air-verse/air@latest
