@@ -1,11 +1,10 @@
 package main
 
 import (
+	"Calculator/controllers"
 	"fmt"
 	"log"
 	"net/http"
-
-	"Calculator/calculator"
 
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
@@ -19,7 +18,7 @@ func main() {
 	router := mux.NewRouter().StrictSlash(true)
 	http.Handle("/", router)
 
-	router.HandleFunc("/", calculator.Handler).Name("Homepage").Methods("POST")
+	router.HandleFunc("/", controllers.CalculatorHandler).Name("Homepage").Methods("POST")
 	router.HandleFunc("/", homepageHandler).Name("Homepage")
 
 	c := cors.New(cors.Options{
