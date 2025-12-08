@@ -29,3 +29,4 @@ A simple calculator project with front-end and back-end components, built for le
 ```bash
 git clone https://github.com/luanramos15/calculator.git
 cd calculator
+docker compose up
