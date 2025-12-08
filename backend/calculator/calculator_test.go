@@ -1,7 +1,6 @@
 package calculator
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -125,8 +124,6 @@ func TestCalculateWithDecimals(t *testing.T) {
 func TestCalculateWithMultipleSquareRoots(t *testing.T) {
 	expression := "√16+√9"
 	result, err := Calculate(expression)
-	fmt.Print(result)
-	fmt.Print(err)
 	if err != nil {
 		t.Errorf("Expected no error, got √")
 	}
